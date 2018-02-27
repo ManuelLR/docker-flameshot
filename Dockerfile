@@ -4,7 +4,7 @@ FROM bitnami/minideb:stretch
 LABEL maintainer="@ManuelLR <manuellr.git@gmail.com>"
 
 ENV GIT_URL https://github.com/lupoDharkael/flameshot.git
-ENV GIT_BRANCH v0.5.0
+ENV GIT_BRANCH v0.5.1
 
 ENV BUILD_PACKAGES git g++ build-essential qt5-qmake qt5-default qttools5-dev-tools
 ENV RUNTIME_PACKAGES libqt5dbus5 libqt5network5 libqt5core5a libqt5widgets5 libqt5gui5 openssl ca-certificates
