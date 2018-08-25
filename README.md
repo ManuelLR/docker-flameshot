@@ -1,4 +1,7 @@
-# docker-flameshot
+# Docker-Flameshot
+
+[![](https://img.shields.io/docker/pulls/manuellr/flameshot.svg)](https://hub.docker.com/r/manuellr/flameshot 'DockerHub')
+
 Dockerized - [Flameshot](https://github.com/lupoDharkael/flameshot)
 
 # Running
@@ -15,7 +18,6 @@ docker run -it --rm \
     -v ~/.Xauthority:/root/.Xauthority \
     -e XAUTHORITY=/root/.Xauthority \
     -h $DCK_HOST \
-    --net=host \
     manuellr/flameshot
 ```
 
@@ -23,6 +25,7 @@ docker run -it --rm \
 ### Others arguments could be added
 - `--env="QT_X11_NO_MITSHM=1"`
 - `--privileged`: Fix LibGL errors
+- `--net=host`
 
 ## Troubleshooting
 ### Could not connect to display
