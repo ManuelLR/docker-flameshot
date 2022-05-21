@@ -25,7 +25,7 @@
           "(^|/)Dockerfile\\.[^/]*$"
         ],
         "matchStrings": [
-          "datasource=(?<datasource>.*?) depName=(?<depName>.*?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?( versioning=(?<versioning>.*?))?(\\s|\\n).*?GIT_BRANCH=(?<currentValue>[^ ]*)( \\\\|\\s|\\n)"
+          "datasource=(?<datasource>.*?) depName=(?<depName>.*?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?( versioning=(?<versioning>.*?))?(\\s|\\n).*?GIT_BRANCH (?<currentValue>.*?)(\\s|\\n)"
         ],
         "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
       }
