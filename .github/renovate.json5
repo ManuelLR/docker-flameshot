@@ -1,0 +1,33 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "onboarding": false,
+    "printConfig": true,
+    "branchPrefix": "renovate_cron/",
+    "baseBranches": ["dev"],
+    "platform": "github",
+    "includeForks": false,
+    "repositories": [
+      "ManuelLR/docker-flameshot"
+    ],
+    "assignees": ["ManuelLR"],
+    "reviewers": ["ManuelLR"],
+    "labels": ["dependency-update"],
+    "allowPlugins": true,
+    "prHourlyLimit": 0,
+    "globalExtends": [
+      "config:base",
+      ":rebaseStalePrs",
+    ],
+    "regexManagers": [
+      {
+        "fileMatch": [
+          "(^|/|\\.)Dockerfile$",
+          "(^|/)Dockerfile\\.[^/]*$"
+        ],
+        "matchStrings": [
+          "datasource=(?<datasource>.*?) depName=(?<depName>.*?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?( versioning=(?<versioning>.*?))?(\\s|\\n).*?GIT_BRANCH=(?<currentValue>[^ ]*)( \\\\|\\s|\\n)"
+        ],
+        "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      }
+    ]
+}

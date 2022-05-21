@@ -1,0 +1,22 @@
+name: Auto Update components
+on:
+  schedule:
+    # This is in UTC time
+      # At 6:28 & 18 spanish time
+    - cron: '2 16 * * *'
+    - cron: '28 4 * * *'
+  workflow_dispatch:
+  # push:
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v32.64.2
+        with:
+          configurationFile: .github/renovate.json5
+          token: ${{ secrets.RENOVATE_TOKEN }}
+        # env:
+        #   LOG_LEVEL: 'debug'
