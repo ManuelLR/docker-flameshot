@@ -2,13 +2,13 @@
 
 [![](https://img.shields.io/docker/pulls/manuellr/flameshot.svg)](https://hub.docker.com/r/manuellr/flameshot 'DockerHub')
 
-Dockerized - [Flameshot](https://github.com/lupoDharkael/flameshot)
+Dockerized - [Flameshot](https://github.com/flameshot-org/flameshot)
 
 # Running
 Based on https://gist.github.com/slok/acb235ae30129307fd53
 
 ```bash
-KEY=$(xauth list | grep $(hostname) | awk '{ print $3 }' | head -n 1)
+KEY=$(xauth list | grep $(uname -a | awk '{print $2}') | awk '{ print $3 }' | head -n 1)
 DCK_HOST=docker-flameshot
 xauth add $DCK_HOST/unix:0 . $KEY
 
@@ -35,4 +35,3 @@ Try this command:
 ```bash
 xhost local:root
 ```
-
